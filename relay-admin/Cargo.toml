@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2023 perillamint <perillamint@silicon.moe>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[package]
+name = "relay-admin"
+version = "0.1.0"
+edition = "2021"
+license = "agpl-3.0-or-later"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.28", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+clap = { version = "4.1", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde", "std"] }
+axum = { version = "^0.6", features = ["multipart"] }
+axum-macros = "^0.3"
+axum-extra = { version = "^0.7", features = ["cookie"] }
+toml = "0.7"
+tokio-postgres = "0.7.7"
+tokio-postgres-rustls = "0.9.0"
+diesel = { version = "2.1.0", default-features = false, features = ["postgres"] }
+diesel-async = { version = "0.3.0", features = ["bb8", "postgres"] }
