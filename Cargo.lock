@@ -1162,6 +1162,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "relay-admin-schema"
+version = "0.1.0"
+dependencies = [
+ "diesel",
+]
+
+[[package]]
 name = "ring"
 version = "0.16.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"

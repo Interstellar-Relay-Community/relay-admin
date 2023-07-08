@@ -4,5 +4,6 @@
 
 [workspace]
 members = [
+    "migrations",
     "relay-admin",
 ]

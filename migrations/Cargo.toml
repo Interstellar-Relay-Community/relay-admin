@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2023 perillamint <perillamint@silicon.moe>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[package]
+name = "relay-admin-schema"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/schema.rs"
+
+[dependencies]
+diesel = { version = "2.1.0", default-features = false, features = ["postgres"] }
