@@ -5,10 +5,10 @@
 -- Your SQL goes here
 CREATE TABLE servers (
     id UUID PRIMARY KEY,
-    webfinger TEXT,
-    authority TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE
+    webfinger TEXT NOT NULL,
+    authority TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL
 );
 
 CREATE INDEX servers_webfinger_idx ON servers (webfinger);
@@ -18,9 +18,9 @@ CREATE INDEX servers_updated_at_idx ON servers (updated_at);
 
 CREATE TABLE tags (
     id UUID PRIMARY KEY,
-    tag TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE
+    tag TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL
 );
 
 CREATE INDEX tags_tag_idx ON tags (tag);
@@ -29,10 +29,10 @@ CREATE INDEX tags_updated_at_idx ON tags (updated_at);
 
 CREATE TABLE tag_server_bridge (
     id UUID PRIMARY KEY,
-    tag_id UUID,
-    server_id UUID,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
+    tag_id UUID NOT NULL,
+    server_id UUID NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL,
     FOREIGN KEY (tag_id) REFERENCES tags (id)
         ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (server_id) REFERENCES servers (id)

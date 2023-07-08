@@ -7,50 +7,50 @@
 diesel::table! {
     servers (id) {
         id -> Uuid,
-        webfinger -> Nullable<Text>,
-        authority -> Nullable<Text>,
-        created_at -> Nullable<Timestamptz>,
-        updated_at -> Nullable<Timestamptz>,
+        webfinger -> Text,
+        authority -> Text,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
 
 diesel::table! {
     tag_server_bridge (id) {
         id -> Uuid,
-        tag_id -> Nullable<Uuid>,
-        server_id -> Nullable<Uuid>,
-        created_at -> Nullable<Timestamptz>,
-        updated_at -> Nullable<Timestamptz>,
+        tag_id -> Uuid,
+        server_id -> Uuid,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
 
 diesel::table! {
     tags (id) {
         id -> Uuid,
-        tag -> Nullable<Text>,
-        created_at -> Nullable<Timestamptz>,
-        updated_at -> Nullable<Timestamptz>,
+        tag -> Text,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
 
 diesel::table! {
     user_idp (id) {
         id -> Uuid,
-        user_id -> Nullable<Uuid>,
-        idp -> Nullable<Text>,
-        idp_id -> Nullable<Text>,
-        created_at -> Nullable<Timestamptz>,
-        updated_at -> Nullable<Timestamptz>,
+        user_id -> Uuid,
+        idp -> Text,
+        idp_id -> Text,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
 
 diesel::table! {
     users (id) {
         id -> Uuid,
-        email -> Nullable<Text>,
-        permission -> Nullable<Jsonb>,
-        created_at -> Nullable<Timestamptz>,
-        updated_at -> Nullable<Timestamptz>,
+        email -> Text,
+        permission -> Jsonb,
+        created_at -> Timestamptz,
+        updated_at -> Timestamptz,
     }
 }
 

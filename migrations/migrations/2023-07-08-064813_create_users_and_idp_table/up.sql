@@ -5,10 +5,10 @@
 -- Your SQL goes here
 CREATE TABLE users (
     id UUID PRIMARY KEY,
-    email text,
-    permission JSONB,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE
+    email TEXT NOT NULL,
+    permission JSONB NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL
 );
 
 CREATE INDEX users_email_idx ON users (email);
@@ -17,11 +17,11 @@ CREATE INDEX users_updated_at_idx ON users (updated_at);
 
 CREATE TABLE user_idp (
     id UUID PRIMARY KEY,
-    user_id UUID,
-    idp TEXT,
-    idp_id TEXT,
-    created_at TIMESTAMP WITH TIME ZONE,
-    updated_at TIMESTAMP WITH TIME ZONE,
+    user_id UUID NOT NULL,
+    idp TEXT NOT NULL,
+    idp_id TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
